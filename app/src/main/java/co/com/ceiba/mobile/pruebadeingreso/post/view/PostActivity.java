@@ -25,6 +25,8 @@ public class PostActivity extends Activity implements PostContract.View {
     private PostRecyclerViewAdapter mAdapter;
     private ArrayList<Post> mPostList = new ArrayList<>();
 
+    public String USER_ID = "user_id";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,11 +68,13 @@ public class PostActivity extends Activity implements PostContract.View {
 
         mListViewSwitcher = findViewById(R.id.viewSwitcherList);
 
-        mListRecyclerView = findViewById(R.id.recyclerViewSearchResults);
+        mListRecyclerView = findViewById(R.id.recyclerViewPostsResults);
         mListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mListRecyclerView.setAdapter(mAdapter);
 
         setPresenter(new PostPresenter(this, this));
+
+        //mPresenter.getPosts(getIntent().getExtras().getString(USER_ID));
         mPresenter.getPosts("10");
     }
 
