@@ -2,14 +2,6 @@ package co.com.ceiba.mobile.pruebadeingreso.user.model;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.widget.Toast;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import co.com.ceiba.mobile.pruebadeingreso.R;
 import co.com.ceiba.mobile.pruebadeingreso.base.CustomInterfaces;
 import co.com.ceiba.mobile.pruebadeingreso.rest.CallbackCustom;
 import co.com.ceiba.mobile.pruebadeingreso.rest.Endpoints;
