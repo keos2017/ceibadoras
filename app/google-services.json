@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1089797414507",
+    "firebase_url": "https://test-d7e37.firebaseio.com",
+    "project_id": "test-d7e37",
+    "storage_bucket": "test-d7e37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089797414507:android:c2d1430206ef2c395a9b2e",
+        "android_client_info": {
+          "package_name": "co.com.ceiba.mobile.pruebadeingreso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089797414507-ho8j3j5inoi1sk7d2efmu52ed986vmpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWfM9bsZRQmBt4YCiDdefIPekuHXgu-Fw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089797414507-ho8j3j5inoi1sk7d2efmu52ed986vmpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089797414507:android:27aef2d656ca3fb75a9b2e",
+        "android_client_info": {
+          "package_name": "com.mona15.soccercondor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089797414507-ho8j3j5inoi1sk7d2efmu52ed986vmpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWfM9bsZRQmBt4YCiDdefIPekuHXgu-Fw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089797414507-ho8j3j5inoi1sk7d2efmu52ed986vmpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
