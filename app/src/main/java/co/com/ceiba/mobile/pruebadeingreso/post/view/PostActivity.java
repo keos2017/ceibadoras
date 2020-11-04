@@ -74,7 +74,11 @@ public class PostActivity extends Activity implements PostContract.View {
 
         setPresenter(new PostPresenter(this, this));
 
-        mPresenter.getPosts(getIntent().getExtras().getString(USER_ID_CUSTOM));
+        if (getIntent().getExtras() != null) {
+            if (getIntent().getExtras().getString(USER_ID_CUSTOM) != null) {
+                mPresenter.getPosts(getIntent().getExtras().getString(USER_ID_CUSTOM));
+            }
+        }
     }
 
     private void validationEmptyList(boolean isEmpty) {

@@ -65,8 +65,9 @@ public class MainActivity extends Activity implements UserContract.View {
         mAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                User mUser = mUserList.get(mListRecyclerView.getChildAdapterPosition(view));
                 Intent intent = new Intent(MainActivity.this, PostActivity.class);
-                intent.putExtra(USER_ID_CUSTOM, "10");
+                intent.putExtra(USER_ID_CUSTOM, String.valueOf(mUser.id));
                 startActivity(intent);
             }
         });
