@@ -33,11 +33,6 @@ public class PostActivity extends Activity implements PostContract.View {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
     public void isLoading(boolean isLoading) {
 
     }
@@ -54,9 +49,16 @@ public class PostActivity extends Activity implements PostContract.View {
 
     @Override
     public void displayPost(List<Post> postList) {
-        mPostList.clear();
-        mPostList.addAll(postList);
-        mAdapter.notifyDataSetChanged();
+        if (postList != null) {
+            validationEmptyList(false);
+            mPostList.clear();
+            mPostList.addAll(mPostList);
+            mAdapter.notifyDataSetChanged();
+        } else {
+            validationEmptyList(true);
+            mPostList.clear();
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     private void initializeComponents() {
