@@ -15,14 +15,14 @@ import com.google.gson.annotations.SerializedName;
 public class Post {
     @SerializedName("userId")
     @Expose
-    Integer userId;
+    public Integer userId;
     @SerializedName("id")
     @Expose
-    Integer id;
+    public Integer id;
     @SerializedName("title")
     @Expose
-    String title;
+    public String title;
     @SerializedName("body")
     @Expose
-    String body;
+    public String body;
 }
