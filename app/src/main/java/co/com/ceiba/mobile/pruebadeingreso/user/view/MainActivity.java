@@ -17,7 +17,7 @@ import co.com.ceiba.mobile.pruebadeingreso.user.model.User;
 import co.com.ceiba.mobile.pruebadeingreso.user.presenter.UserContract;
 import co.com.ceiba.mobile.pruebadeingreso.user.presenter.UserPresenter;
 
-import static io.realm.permissions.UserCondition.MatcherType.USER_ID;
+import static co.com.ceiba.mobile.pruebadeingreso.post.view.PostActivity.USER_ID_CUSTOM;
 
 public class MainActivity extends Activity implements UserContract.View {
 
@@ -66,7 +66,7 @@ public class MainActivity extends Activity implements UserContract.View {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PostActivity.class);
-                //intent.putExtra(USER_ID, "10");
+                intent.putExtra(USER_ID_CUSTOM, "10");
                 startActivity(intent);
             }
         });

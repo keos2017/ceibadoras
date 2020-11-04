@@ -25,7 +25,7 @@ public class PostActivity extends Activity implements PostContract.View {
     private PostRecyclerViewAdapter mAdapter;
     private ArrayList<Post> mPostList = new ArrayList<>();
 
-    public String USER_ID = "user_id";
+    public static String USER_ID_CUSTOM = "user_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +74,7 @@ public class PostActivity extends Activity implements PostContract.View {
 
         setPresenter(new PostPresenter(this, this));
 
-        //mPresenter.getPosts(getIntent().getExtras().getString(USER_ID));
-        mPresenter.getPosts("10");
+        mPresenter.getPosts(getIntent().getExtras().getString(USER_ID_CUSTOM));
     }
 
     private void validationEmptyList(boolean isEmpty) {
