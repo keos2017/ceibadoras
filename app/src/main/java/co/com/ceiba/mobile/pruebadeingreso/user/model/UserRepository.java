@@ -2,6 +2,9 @@ package co.com.ceiba.mobile.pruebadeingreso.user.model;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+
+import java.util.List;
+
 import co.com.ceiba.mobile.pruebadeingreso.base.CustomInterfaces;
 import co.com.ceiba.mobile.pruebadeingreso.rest.CallbackCustom;
 import co.com.ceiba.mobile.pruebadeingreso.rest.Endpoints;
@@ -30,16 +33,16 @@ public class UserRepository {
     }
 
     public void getUser(final CustomInterfaces.UserCallback mCallback){
-        mEndpoints.getUser().enqueue(new CallbackCustom<User>(mContext){
+        mEndpoints.getUser().enqueue(new CallbackCustom<List<User>>(mContext){
             @Override
-            public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
+            public void onResponse(@NonNull Call<List<User>> call, @NonNull Response<List<User>> response) {
                 if (response.isSuccessful()) {
                     mCallback.onSuccess(response.body());
                 }
             }
 
             @Override
-            public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<List<User>> call, @NonNull Throwable t) {
                 t.printStackTrace();
                 mCallback.onFailure(t.getMessage());
             }

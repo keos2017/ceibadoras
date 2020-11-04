@@ -1,5 +1,7 @@
 package co.com.ceiba.mobile.pruebadeingreso.rest;
 
+import java.util.List;
+
 import co.com.ceiba.mobile.pruebadeingreso.post.model.Post;
 import co.com.ceiba.mobile.pruebadeingreso.user.model.User;
 import retrofit2.Call;
@@ -13,10 +15,10 @@ public class Endpoints {
 
     public interface listEndpoints{
         @GET(GET_USERS)
-        Call<User> getUser();
+        Call<List<User>> getUser();
 
         @GET(GET_POST_USER)
-        Call<Post> getPosts(
+        Call<List<Post>> getPosts(
                 @Query("userId") String userId);
     }
 }
