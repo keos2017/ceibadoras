@@ -1,5 +1,6 @@
 package co.com.ceiba.mobile.pruebadeingreso.base;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import co.com.ceiba.mobile.pruebadeingreso.post.model.Post;
@@ -14,5 +15,10 @@ public class CustomInterfaces {
     public interface PostCallback {
         void onSuccess(List<Post> posts);
         void onFailure(String message);
+    }
+
+    public interface ShowUserCallback {
+        void show(ArrayList<User> list);
+        void empty();
     }
 }

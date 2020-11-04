@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import co.com.ceiba.mobile.pruebadeingreso.R;
 import co.com.ceiba.mobile.pruebadeingreso.base.ConfigUtils;
+import co.com.ceiba.mobile.pruebadeingreso.base.CustomInterfaces;
 import co.com.ceiba.mobile.pruebadeingreso.user.model.User;
 
 public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> implements View.OnClickListener{
@@ -19,11 +21,13 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     private LayoutInflater mLayoutInflater;
     private Context mContext;
     private List<User> mList;
+    private List<User> mFullList;
     private View.OnClickListener mListener;
 
     UserRecyclerViewAdapter(Context context, List<User> userList){
         mContext = context;
         mList = userList;
+        mFullList = userList;
         mLayoutInflater = LayoutInflater.from(context);
     }
 
@@ -71,6 +75,34 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
             mNameTextView.setText(ConfigUtils.putCapitalInitial(user.name));
             mPhoneTextView.setText(ConfigUtils.putCapitalInitial(user.phone));
             mEmailTextView.setText(ConfigUtils.putCapitalInitial(user.email));
+        }
+    }
+
+    public void filter(String textForTheFilter, CustomInterfaces.ShowUserCallback mCallback){
+
+        ArrayList<User> filteredList = new ArrayList<>();
+
+        if (textForTheFilter.isEmpty()) {
+            filteredList.addAll(mFullList);
+        } else {
+
+            String filterPattern = textForTheFilter.toLowerCase();
+
+            for (User mUser: mFullList) {
+                if (mUser.name!= null && ConfigUtils.validateString(mUser.name)) {
+                    String validateText = mUser.name.toLowerCase();
+
+                    if (validateText.contains(filterPattern)) {
+                        filteredList.add(mUser);
+                    }
+                }
+            }
+        }
+
+        if (filteredList.isEmpty()){
+            mCallback.empty();
+        } else {
+            mCallback.show(filteredList);
         }
     }
 }
