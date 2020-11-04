@@ -54,7 +54,7 @@ public class PostActivity extends Activity implements PostContract.View {
         if (postList != null) {
             validationEmptyList(false);
             mPostList.clear();
-            mPostList.addAll(mPostList);
+            mPostList.addAll(postList);
             mAdapter.notifyDataSetChanged();
         } else {
             validationEmptyList(true);
@@ -67,7 +67,6 @@ public class PostActivity extends Activity implements PostContract.View {
         mAdapter = new PostRecyclerViewAdapter(this, mPostList);
 
         mListViewSwitcher = findViewById(R.id.viewSwitcherList);
-
         mListRecyclerView = findViewById(R.id.recyclerViewPostsResults);
         mListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mListRecyclerView.setAdapter(mAdapter);
