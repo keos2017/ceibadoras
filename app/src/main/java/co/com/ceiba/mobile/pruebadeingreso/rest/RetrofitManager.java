@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @version 1.0
  */
 public class RetrofitManager {
-    
+
     private OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
