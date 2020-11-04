@@ -15,26 +15,26 @@ import com.google.gson.annotations.SerializedName;
 public class User {
     @SerializedName("id")
     @Expose
-    Integer id;
+    public Integer id;
     @SerializedName("name")
     @Expose
-    String name;
+    public String name;
     @SerializedName("username")
     @Expose
-    String username;
+    public String username;
     @SerializedName("email")
     @Expose
-    String email;
+    public String email;
     @SerializedName("address")
     @Expose
-    Address address;
+    public Address address;
     @SerializedName("phone")
     @Expose
-    String phone;
+    public String phone;
     @SerializedName("website")
     @Expose
-    String website;
+    public String website;
     @SerializedName("company")
     @Expose
-    Company company;
+    public Company company;
 }

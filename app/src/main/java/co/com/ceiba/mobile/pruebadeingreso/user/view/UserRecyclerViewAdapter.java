@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import co.com.ceiba.mobile.pruebadeingreso.R;
+import co.com.ceiba.mobile.pruebadeingreso.base.ConfigUtils;
 import co.com.ceiba.mobile.pruebadeingreso.user.model.User;
 
 public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> implements View.OnClickListener{
@@ -19,7 +20,6 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     private Context mContext;
     private List<User> mList;
     private View.OnClickListener mListener;
-    private View.OnClickListener mOnClickListener;
 
     UserRecyclerViewAdapter(Context context, List<User> userList){
         mContext = context;
@@ -37,7 +37,8 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-         User user = mList.get(position);
+        User user = mList.get(position);
+        holder.addUser(user);
     }
 
     @Override
@@ -52,13 +53,24 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         }
     }
 
+    void setOnClickListener(View.OnClickListener listener) {
+        this.mListener = listener;
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView mNameTextView, mPhoneTextView, mEmailTextView;
 
         ViewHolder (View mView) {
             super(mView);
-            TextView mNameTextView = mView.findViewById(R.id.name);
-            TextView mPhoneTextView = mView.findViewById(R.id.phone);
-            TextView mEmailTextView = mView.findViewById(R.id.email);
+            mNameTextView = mView.findViewById(R.id.name);
+            mPhoneTextView = mView.findViewById(R.id.phone);
+            mEmailTextView = mView.findViewById(R.id.email);
+        }
+
+        void addUser(User user){
+            mNameTextView.setText(ConfigUtils.putCapitalInitial(user.name));
+            mPhoneTextView.setText(ConfigUtils.putCapitalInitial(user.phone));
+            mEmailTextView.setText(ConfigUtils.putCapitalInitial(user.email));
         }
     }
 }

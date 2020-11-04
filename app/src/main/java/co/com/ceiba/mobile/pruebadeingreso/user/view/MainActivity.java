@@ -2,8 +2,12 @@ package co.com.ceiba.mobile.pruebadeingreso.user.view;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import co.com.ceiba.mobile.pruebadeingreso.R;
@@ -14,6 +18,9 @@ import co.com.ceiba.mobile.pruebadeingreso.user.presenter.UserPresenter;
 public class MainActivity extends Activity implements UserContract.View {
 
     private UserContract.Presenter mPresenter;
+    private UserRecyclerViewAdapter mAdapter;
+    private ArrayList<User> mUserList = new ArrayList<>();
+    private RecyclerView mListRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +51,24 @@ public class MainActivity extends Activity implements UserContract.View {
 
     @Override
     public void displayUsers(List<User> userList) {
-        /*loadUsers(userList);
-        mUserRecyclerViewAdapter.notifyDataSetChanged();*/
+        mUserList.clear();
+        mUserList.addAll(userList);
+        mAdapter.notifyDataSetChanged();
     }
 
     private void initializeComponents() {
+        mAdapter = new UserRecyclerViewAdapter(this, mUserList);
+        mAdapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        mListRecyclerView = findViewById(R.id.recyclerViewSearchResults);
+        mListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mListRecyclerView.setAdapter(mAdapter);
+
         setPresenter(new UserPresenter(this, this));
         mPresenter.getUsers();
     }
