@@ -18,7 +18,7 @@ public class UserPresenter implements UserContract.Presenter {
         mView = checkNotNull(view);
         mRepository = new UserRepository(context);
     }
-    
+
     @Override
     public void getUsers() {
         mView.isLoading(true);

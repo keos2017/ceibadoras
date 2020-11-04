@@ -8,7 +8,7 @@ public interface UserContract {
     interface View {
         void isLoading(boolean isLoading);
         void displayMessage(String message);
-        void setPresenter(User presenter);
+        void setPresenter(Presenter presenter);
         void displayUsers(List<User> userList);
     }
 
