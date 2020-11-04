@@ -44,7 +44,8 @@ public class MainActivity extends Activity implements UserContract.View {
 
     @Override
     public void displayUsers(List<User> userList) {
-
+        /*loadUsers(userList);
+        mUserRecyclerViewAdapter.notifyDataSetChanged();*/
     }
 
     private void initializeComponents() {
